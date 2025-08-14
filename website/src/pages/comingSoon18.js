@@ -43,7 +43,7 @@ const ComingSoon18 = () => {
                   <Link to={process.env.PUBLIC_URL + "/"}>
                     <img
                       src={
-                        process.env.PUBLIC_URL + "/assets/img/logo/logo-18.png"
+                        process.env.PUBLIC_URL + "/assets/img/logo/smartsfi_logo.webp"
                       }
                       className="img-fluid"
                       alt=""

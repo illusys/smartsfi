@@ -1,668 +1,187 @@
-import React, { Component, Fragment } from "react";
-import { Helmet } from "react-helmet";
+import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
-import { Link as SmoothLink } from "react-scroll";
+import { Helmet } from "react-helmet";
+import { ReactSVG } from "react-svg";
+import Countdown from "react-countdown";
+import Renderer from "../components/countdown/Renderer";
+import SubscribeEmail from "../components/newsletter/SubscribeEmail";
 
-class LandingPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-    this.handleScroll = this.handleScroll.bind(this);
-  }
-
-  handleScroll() {
-    if (this.mount) {
-      this.setState({ scroll: window.scrollY });
-    }
-  }
-
-  componentDidMount() {
-    this.mount = true;
-    const el = document.querySelector(".header-section");
-    this.setState({ top: el.offsetTop, height: el.offsetHeight });
-    window.addEventListener("scroll", this.handleScroll);
-  }
-
-  // componentDidUpdate() {
-  //   const heroSection = document.querySelector(".hero-section");
-  //   this.state.scroll > this.state.top
-  //     ? (heroSection.style.marginTop = `${this.state.height}px`)
-  //     : (heroSection.style.marginTop = 0);
-  // }
-
-  componentWillUnmount() {
-    this.mount = false;
-  }
-  render() {
-    return (
-      <Fragment>
-        <Helmet>
-          <link
-            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-            rel="stylesheet"
-          />
-          <link
-            rel="stylesheet"
-            href={process.env.PUBLIC_URL + "/assets/css/fontawesome.min.css"}
-          />
-        </Helmet>
-        {/* header */}
-        <div className={`header-section section`}>
+const ComingSoon18 = () => {
+  return (
+    <Fragment>
+      <Helmet>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+          rel="stylesheet"
+        />
+        <style>
+          {`
+            .cs-18-countdown .single-countdown__text{
+              background-image: url(${
+                process.env.PUBLIC_URL + "/assets/img/icons/clock.svg"
+              })
+            }
+          `}
+        </style>
+      </Helmet>
+      <div
+        className="cs-18-page-wrapper h-100 bg-img d-flex flex-column justify-content-between"
+        style={{
+          backgroundImage: `url(${
+            process.env.PUBLIC_URL +
+            "/assets/img/backgrounds/coming-soon-18.jpg"
+          })`
+        }}
+      >
+        {/*====================  header ====================*/}
+        <header className="cs-18-header space-pt--30 space-pb--30">
           <div className="container">
-            <div className="row justify-content-between align-items-center">
-              <div className="logo col-md-auto col-12">
-                <Link to={process.env.PUBLIC_URL + "/"}>
-                  <img
-                    src={
-                      process.env.PUBLIC_URL + "/assets/img/landing/logo.png"
-                    }
-                    alt=""
-                  />
-                  <img
-                    src={
-                      process.env.PUBLIC_URL +
-                      "/assets/img/landing/logo-color.png"
-                    }
-                    alt=""
-                    className="sticky"
-                  />
-                </Link>
+            <div className="row">
+              <div className="col-4">
+                {/* logo */}
+                <div className="cs-18-logo">
+                  <Link to={process.env.PUBLIC_URL + "/"}>
+                    <img
+                      src={
+                        process.env.PUBLIC_URL + "/assets/img/logo/logo-18.png"
+                      }
+                      className="img-fluid"
+                      alt=""
+                    />
+                  </Link>
+                </div>
               </div>
-              <div className="col-md-auto col-12">
-                <ul className="header-links">
+            </div>
+          </div>
+        </header>
+        {/*====================  End of header  ====================*/}
+        {/*====================  content ====================*/}
+        <div className="cs-18-content">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-9">
+                <h3 className="cs-18-content__subtitle space-mb--10">
+                  COMING SOON
+                </h3>
+                <h2 className="cs-18-content__title">
+                  We are building <br /> something awesome!!
+                </h2>
+                {/* countdown */}
+                <div className="cs-18-countdown space-mt--50">
+                  <Countdown
+                    date={new Date("November 07, 2025 12:12:00")}
+                    renderer={Renderer}
+                  />
+                </div>
+                <div className="cs-18-subscription-wrapper space-mt--50">
+                  {/* subscribe email */}
+                  <SubscribeEmail mailchimpUrl="https://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/*====================  End of content  ====================*/}
+        {/*====================  footer ====================*/}
+        <footer className="cs-18-footer space-pt--25 space-pb--25">
+          <div className="container">
+            <div className="row align-items-center">
+              <div className="col-12 col-md-6">
+                {/* social icons */}
+                <ul className="cs-18-social-icons d-flex align-items-center justify-content-center justify-content-md-start">
                   <li>
-                    <SmoothLink
-                      className="smoth-scroll"
-                      to="demos"
-                      smooth={true}
-                      duration={500}
+                    <a
+                      href="http://www.facebook.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
-                      Demos
-                    </SmoothLink>
+                      <ReactSVG
+                        src={
+                          process.env.PUBLIC_URL +
+                          "/assets/img/icons/facebook-01.svg"
+                        }
+                      />
+                    </a>
                   </li>
                   <li>
-                    <a href="https://hasthemes.com/contact-us/">Support</a>
+                    <a
+                      href="http://www.twitter.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <ReactSVG
+                        src={
+                          process.env.PUBLIC_URL +
+                          "/assets/img/icons/twitter-01.svg"
+                        }
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="http://www.instagram.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <ReactSVG
+                        src={
+                          process.env.PUBLIC_URL +
+                          "/assets/img/icons/instagram-01.svg"
+                        }
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="http://www.linkedin.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <ReactSVG
+                        src={
+                          process.env.PUBLIC_URL +
+                          "/assets/img/icons/linkedin-01.svg"
+                        }
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="http://www.youtube.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <ReactSVG
+                        src={
+                          process.env.PUBLIC_URL +
+                          "/assets/img/icons/youtube-01.svg"
+                        }
+                      />
+                    </a>
                   </li>
                 </ul>
               </div>
-            </div>
-          </div>
-        </div>
-
-        {/* hero area */}
-        <div
-          className="hero-section section overlay"
-          style={{
-            backgroundImage: `url(${
-              process.env.PUBLIC_URL + "/assets/img/landing/hero-bg.jpg"
-            })`
-          }}
-        >
-          <div className="container">
-            <div className="hero-content">
-              <h2 className="title">
-                <span>Bluetoof</span> - React JS Coming Soon Template
-              </h2>
-              <SmoothLink
-                className="btn btn-light smoth-scroll"
-                to="demos"
-                smooth={true}
-                duration={500}
-              >
-                View Demo
-              </SmoothLink>
-            </div>
-          </div>
-        </div>
-
-        {/* demo pages */}
-        <div id="demos" className="section section-padding">
-          <div className="container">
-            <div className="projects row row-cols-lg-3 row-cols-sm-2 row-cols-1 justify-content-center">
-              <div className="project col">
-                <div className="inner">
-                  <Link
-                    to={process.env.PUBLIC_URL + "/coming-soon-one"}
-                    className="image"
+              <div className="col-12 col-md-6">
+                {/* copyright */}
+                <div className="cs-18-copyright text-right">
+                  &copy; {new Date().getFullYear() + " "}
+                  <a
+                    href="https://illusys.com.ng/"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    <img
-                      src={
-                        process.env.PUBLIC_URL +
-                        "/assets/img/landing/bluetoof/coming-soon-01.png"
-                      }
-                      alt=""
-                    />
-                    <i className="fas fa-arrow-right" />
-                  </Link>
-                  <h4 className="title">
-                    <Link to={process.env.PUBLIC_URL + "/coming-soon-one"}>
-                      Coming Soon One
-                    </Link>
-                  </h4>
-                </div>
-              </div>
-              <div className="project col">
-                <div className="inner">
-                  <Link
-                    to={process.env.PUBLIC_URL + "/coming-soon-two"}
-                    className="image"
-                  >
-                    <img
-                      src={
-                        process.env.PUBLIC_URL +
-                        "/assets/img/landing/bluetoof/coming-soon-02.png"
-                      }
-                      alt=""
-                    />
-                    <i className="fas fa-arrow-right" />
-                  </Link>
-                  <h4 className="title">
-                    <Link to={process.env.PUBLIC_URL + "/coming-soon-two"}>
-                      Coming Soon Two
-                    </Link>
-                  </h4>
-                </div>
-              </div>
-              <div className="project col">
-                <div className="inner">
-                  <Link
-                    to={process.env.PUBLIC_URL + "/coming-soon-three"}
-                    className="image"
-                  >
-                    <img
-                      src={
-                        process.env.PUBLIC_URL +
-                        "/assets/img/landing/bluetoof/coming-soon-03.png"
-                      }
-                      alt=""
-                    />
-                    <i className="fas fa-arrow-right" />
-                  </Link>
-                  <h4 className="title">
-                    <Link to={process.env.PUBLIC_URL + "/coming-soon-three"}>
-                      Coming Soon Three
-                    </Link>
-                  </h4>
-                </div>
-              </div>
-              <div className="project col">
-                <div className="inner">
-                  <Link
-                    to={process.env.PUBLIC_URL + "/coming-soon-four"}
-                    className="image"
-                  >
-                    <img
-                      src={
-                        process.env.PUBLIC_URL +
-                        "/assets/img/landing/bluetoof/coming-soon-04.png"
-                      }
-                      alt=""
-                    />
-                    <i className="fas fa-arrow-right" />
-                  </Link>
-                  <h4 className="title">
-                    <Link to={process.env.PUBLIC_URL + "/coming-soon-four"}>
-                      Coming Soon Four
-                    </Link>
-                  </h4>
-                </div>
-              </div>
-              <div className="project col">
-                <div className="inner">
-                  <Link
-                    to={process.env.PUBLIC_URL + "/coming-soon-five"}
-                    className="image"
-                  >
-                    <img
-                      src={
-                        process.env.PUBLIC_URL +
-                        "/assets/img/landing/bluetoof/coming-soon-05.png"
-                      }
-                      alt=""
-                    />
-                    <i className="fas fa-arrow-right" />
-                  </Link>
-                  <h4 className="title">
-                    <Link to={process.env.PUBLIC_URL + "/coming-soon-five"}>
-                      Coming Soon Five
-                    </Link>
-                  </h4>
-                </div>
-              </div>
-              <div className="project col">
-                <div className="inner">
-                  <Link
-                    to={process.env.PUBLIC_URL + "/coming-soon-six"}
-                    className="image"
-                  >
-                    <img
-                      src={
-                        process.env.PUBLIC_URL +
-                        "/assets/img/landing/bluetoof/coming-soon-06.png"
-                      }
-                      alt=""
-                    />
-                    <i className="fas fa-arrow-right" />
-                  </Link>
-                  <h4 className="title">
-                    <Link to={process.env.PUBLIC_URL + "/coming-soon-six"}>
-                      Coming Soon Six
-                    </Link>
-                  </h4>
-                </div>
-              </div>
-              <div className="project col">
-                <div className="inner">
-                  <Link
-                    to={process.env.PUBLIC_URL + "/coming-soon-seven"}
-                    className="image"
-                  >
-                    <img
-                      src={
-                        process.env.PUBLIC_URL +
-                        "/assets/img/landing/bluetoof/coming-soon-07.png"
-                      }
-                      alt=""
-                    />
-                    <i className="fas fa-arrow-right" />
-                  </Link>
-                  <h4 className="title">
-                    <Link to={process.env.PUBLIC_URL + "/coming-soon-seven"}>
-                      Coming Soon Seven
-                    </Link>
-                  </h4>
-                </div>
-              </div>
-              <div className="project col">
-                <div className="inner">
-                  <Link
-                    to={process.env.PUBLIC_URL + "/coming-soon-eight"}
-                    className="image"
-                  >
-                    <img
-                      src={
-                        process.env.PUBLIC_URL +
-                        "/assets/img/landing/bluetoof/coming-soon-08.png"
-                      }
-                      alt=""
-                    />
-                    <i className="fas fa-arrow-right" />
-                  </Link>
-                  <h4 className="title">
-                    <Link to={process.env.PUBLIC_URL + "/coming-soon-eight"}>
-                      Coming Soon Eight
-                    </Link>
-                  </h4>
-                </div>
-              </div>
-              <div className="project col">
-                <div className="inner">
-                  <Link
-                    to={process.env.PUBLIC_URL + "/coming-soon-nine"}
-                    className="image"
-                  >
-                    <img
-                      src={
-                        process.env.PUBLIC_URL +
-                        "/assets/img/landing/bluetoof/coming-soon-09.png"
-                      }
-                      alt=""
-                    />
-                    <i className="fas fa-arrow-right" />
-                  </Link>
-                  <h4 className="title">
-                    <Link to={process.env.PUBLIC_URL + "/coming-soon-nine"}>
-                      Coming Soon Nine
-                    </Link>
-                  </h4>
-                </div>
-              </div>
-              <div className="project col">
-                <div className="inner">
-                  <Link
-                    to={process.env.PUBLIC_URL + "/coming-soon-ten"}
-                    className="image"
-                  >
-                    <img
-                      src={
-                        process.env.PUBLIC_URL +
-                        "/assets/img/landing/bluetoof/coming-soon-10.png"
-                      }
-                      alt=""
-                    />
-                    <i className="fas fa-arrow-right" />
-                  </Link>
-                  <h4 className="title">
-                    <Link to={process.env.PUBLIC_URL + "/coming-soon-ten"}>
-                      Coming Soon Ten
-                    </Link>
-                  </h4>
-                </div>
-              </div>
-              <div className="project col">
-                <div className="inner">
-                  <Link
-                    to={process.env.PUBLIC_URL + "/coming-soon-eleven"}
-                    className="image"
-                  >
-                    <img
-                      src={
-                        process.env.PUBLIC_URL +
-                        "/assets/img/landing/bluetoof/coming-soon-11.png"
-                      }
-                      alt=""
-                    />
-                    <i className="fas fa-arrow-right" />
-                  </Link>
-                  <h4 className="title">
-                    <Link to={process.env.PUBLIC_URL + "/coming-soon-eleven"}>
-                      Coming Soon Eleven
-                    </Link>
-                  </h4>
-                </div>
-              </div>
-              <div className="project col">
-                <div className="inner">
-                  <Link
-                    to={process.env.PUBLIC_URL + "/coming-soon-twelve"}
-                    className="image"
-                  >
-                    <img
-                      src={
-                        process.env.PUBLIC_URL +
-                        "/assets/img/landing/bluetoof/coming-soon-12.png"
-                      }
-                      alt=""
-                    />
-                    <i className="fas fa-arrow-right" />
-                  </Link>
-                  <h4 className="title">
-                    <Link to={process.env.PUBLIC_URL + "/coming-soon-twelve"}>
-                      Coming Soon Twelve
-                    </Link>
-                  </h4>
-                </div>
-              </div>
-              <div className="project col">
-                <div className="inner">
-                  <Link
-                    to={process.env.PUBLIC_URL + "/coming-soon-thirteen"}
-                    className="image"
-                  >
-                    <img
-                      src={
-                        process.env.PUBLIC_URL +
-                        "/assets/img/landing/bluetoof/coming-soon-13.png"
-                      }
-                      alt=""
-                    />
-                    <i className="fas fa-arrow-right" />
-                  </Link>
-                  <h4 className="title">
-                    <Link to={process.env.PUBLIC_URL + "/coming-soon-thirteen"}>
-                      Coming Soon Thirteen
-                    </Link>
-                  </h4>
-                </div>
-              </div>
-              <div className="project col">
-                <div className="inner">
-                  <Link
-                    to={process.env.PUBLIC_URL + "/coming-soon-fourteen"}
-                    className="image"
-                  >
-                    <img
-                      src={
-                        process.env.PUBLIC_URL +
-                        "/assets/img/landing/bluetoof/coming-soon-14.png"
-                      }
-                      alt=""
-                    />
-                    <i className="fas fa-arrow-right" />
-                  </Link>
-                  <h4 className="title">
-                    <Link to={process.env.PUBLIC_URL + "/coming-soon-fourteen"}>
-                      Coming Soon Fourteen
-                    </Link>
-                  </h4>
-                </div>
-              </div>
-              <div className="project col">
-                <div className="inner">
-                  <Link
-                    to={process.env.PUBLIC_URL + "/coming-soon-fifteen"}
-                    className="image"
-                  >
-                    <img
-                      src={
-                        process.env.PUBLIC_URL +
-                        "/assets/img/landing/bluetoof/coming-soon-15.png"
-                      }
-                      alt=""
-                    />
-                    <i className="fas fa-arrow-right" />
-                  </Link>
-                  <h4 className="title">
-                    <Link to={process.env.PUBLIC_URL + "/coming-soon-fifteen"}>
-                      Coming Soon Fifteen
-                    </Link>
-                  </h4>
-                </div>
-              </div>
-              <div className="project col">
-                <div className="inner">
-                  <Link
-                    to={process.env.PUBLIC_URL + "/coming-soon-sixteen"}
-                    className="image"
-                  >
-                    <img
-                      src={
-                        process.env.PUBLIC_URL +
-                        "/assets/img/landing/bluetoof/coming-soon-16.png"
-                      }
-                      alt=""
-                    />
-                    <i className="fas fa-arrow-right" />
-                  </Link>
-                  <h4 className="title">
-                    <Link to={process.env.PUBLIC_URL + "/coming-soon-sixteen"}>
-                      Coming Soon Sixteen
-                    </Link>
-                  </h4>
-                </div>
-              </div>
-              <div className="project col">
-                <div className="inner">
-                  <Link
-                    to={process.env.PUBLIC_URL + "/coming-soon-seventeen"}
-                    className="image"
-                  >
-                    <img
-                      src={
-                        process.env.PUBLIC_URL +
-                        "/assets/img/landing/bluetoof/coming-soon-17.png"
-                      }
-                      alt=""
-                    />
-                    <i className="fas fa-arrow-right" />
-                  </Link>
-                  <h4 className="title">
-                    <Link
-                      to={process.env.PUBLIC_URL + "/coming-soon-seventeen"}
-                    >
-                      Coming Soon Seventeen
-                    </Link>
-                  </h4>
-                </div>
-              </div>
-              <div className="project col">
-                <div className="inner">
-                  <Link
-                    to={process.env.PUBLIC_URL + "/coming-soon-eighteen"}
-                    className="image"
-                  >
-                    <img
-                      src={
-                        process.env.PUBLIC_URL +
-                        "/assets/img/landing/bluetoof/coming-soon-18.png"
-                      }
-                      alt=""
-                    />
-                    <i className="fas fa-arrow-right" />
-                  </Link>
-                  <h4 className="title">
-                    <Link to={process.env.PUBLIC_URL + "/coming-soon-eighteen"}>
-                      Coming Soon Eighteen
-                    </Link>
-                  </h4>
-                </div>
-              </div>
-              <div className="project col">
-                <div className="inner">
-                  <Link
-                    to={process.env.PUBLIC_URL + "/coming-soon-nineteen"}
-                    className="image"
-                  >
-                    <img
-                      src={
-                        process.env.PUBLIC_URL +
-                        "/assets/img/landing/bluetoof/coming-soon-19.png"
-                      }
-                      alt=""
-                    />
-                    <i className="fas fa-arrow-right" />
-                  </Link>
-                  <h4 className="title">
-                    <Link to={process.env.PUBLIC_URL + "/coming-soon-nineteen"}>
-                      Coming Soon Nineteen
-                    </Link>
-                  </h4>
-                </div>
-              </div>
-              <div className="project col">
-                <div className="inner">
-                  <Link
-                    to={process.env.PUBLIC_URL + "/coming-soon-twenty"}
-                    className="image"
-                  >
-                    <img
-                      src={
-                        process.env.PUBLIC_URL +
-                        "/assets/img/landing/bluetoof/coming-soon-20.png"
-                      }
-                      alt=""
-                    />
-                    <i className="fas fa-arrow-right" />
-                  </Link>
-                  <h4 className="title">
-                    <Link to={process.env.PUBLIC_URL + "/coming-soon-twenty"}>
-                      Coming Soon Twenty
-                    </Link>
-                  </h4>
+                    Powered by iLLuSys
+                  </a>
+                  , all rights reserved
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </footer>
+        {/*====================  End of footer  ====================*/}
+      </div>
+    </Fragment>
+  );
+};
 
-        {/* features */}
-        <div className="section section-padding bg-light">
-          <div className="container">
-            <div className="section-title">
-              <h2 className="title">Core Features</h2>
-            </div>
-            <div className="features row row-cols-lg-3 row-cols-md-2 row-cols-1">
-              <div className="feature col">
-                <span className="icon">
-                  <i className="fas fa-mobile" />
-                </span>
-                <div className="content">
-                  <h4 className="title">Responsive Design</h4>
-                  <p>
-                    Bluetoof is super responsive &amp; work perfectly in all
-                    devices.
-                  </p>
-                </div>
-              </div>
-              <div className="feature col">
-                <span className="icon">
-                  <i className="fas fa-user" />
-                </span>
-                <div className="content">
-                  <h4 className="title">User Friendly</h4>
-                  <p>
-                    Bluetoof is easy to use for any technical &amp; nontechnical
-                    People.
-                  </p>
-                </div>
-              </div>
-              <div className="feature col">
-                <span className="icon">
-                  <i className="fas fa-flask" />
-                </span>
-                <div className="content">
-                  <h4 className="title">Creative Design</h4>
-                  <p>It's comes with creative &amp; smart design layout.</p>
-                </div>
-              </div>
-              <div className="feature col">
-                <span className="icon">
-                  <i className="fas fa-font" />
-                </span>
-                <div className="content">
-                  <h4 className="title">Google Font</h4>
-                  <p>
-                    600+ Google Fonts. You can change font for all elements
-                    easily.
-                  </p>
-                </div>
-              </div>
-              <div className="feature col">
-                <span className="icon">
-                  <i className="fas fa-search" />
-                </span>
-                <div className="content">
-                  <h4 className="title">Clean Markup</h4>
-                  <p>We developed it followed by W3C Markup.</p>
-                </div>
-              </div>
-              <div className="feature col">
-                <span className="icon">
-                  <i className="fas fa-cloud-upload-alt"></i>
-                </span>
-                <div className="content">
-                  <h4 className="title">Free Updates</h4>
-                  <p>Purchase once &amp; get life-time free updates.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* cta area */}
-        <div
-          className="cta-section section section-padding overlay"
-          style={{
-            backgroundImage: `url(${
-              process.env.PUBLIC_URL + "/assets/img/landing/hero-bg-02.jpg"
-            })`
-          }}
-        >
-          <div className="container">
-            <div className="cta-content">
-              <h2 className="title">Make your website come to life quickly.</h2>
-              <a
-                className="btn btn-light-outline"
-                href="https://hasthemes.com/react-templates/"
-              >
-                buy Bluetoof
-              </a>
-            </div>
-          </div>
-        </div>
-      </Fragment>
-    );
-  }
-}
-
-export default LandingPage;
+export default ComingSoon18;
