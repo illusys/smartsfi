@@ -1,8 +1,1 @@
-{
-  "/_app": "pages/_app.js",
-  "/_error": "pages/_error.js",
-  "/_document": "pages/_document.js",
-  "/about": "pages/about.js",
-  "/": "pages/index.js",
-  "/blog-standard": "pages/blog-standard.js"
-}
+{"/_error":"pages/_error.js","/about":"pages/about.html","/api/hello":"pages/api/hello.js","/_app":"pages/_app.js","/blog-standard":"pages/blog-standard.html","/blog-details":"pages/blog-details.html","/checkout":"pages/checkout.html","/cart":"pages/cart.html","/faqs":"pages/faqs.html","/index-2":"pages/index-2.html","/index-4":"pages/index-4.html","/farmers":"pages/farmers.html","/index-6":"pages/index-6.html","/contact":"pages/contact.html","/portfolio-grid":"pages/portfolio-grid.html","/portfolio-details":"pages/portfolio-details.html","/portfolio-full-width":"pages/portfolio-full-width.html","/":"pages/index.html","/product-details":"pages/product-details.html","/products-right-sidebar":"pages/products-right-sidebar.html","/products-left-sidebar":"pages/products-left-sidebar.html","/services":"pages/services.html","/products":"pages/products.html","/service-details":"pages/service-details.html","/_document":"pages/_document.js","/404":"pages/404.html"}
