@@ -343,7 +343,7 @@ const Index3 = () => {
                   <div className="section-title section-title-left mb-40 wow fadeInUp">
                     <span className="sub-title">Company Statistics</span>
                     <h2>
-                      Why People Say Us Best Farming Company in The Worlds
+                    Why People Say We’re a Leading Force in Sustainable Agriculture
                     </h2>
                   </div>
                 </div>
@@ -361,7 +361,7 @@ const Index3 = () => {
                       <h2 className="number">
                         <Counter end={3652} />+
                       </h2>
-                      <p>Tons of Harvesta</p>
+                      <p>Tons of Produce Harvested</p>
                     </div>
                   </div>
                 </div>
@@ -377,7 +377,7 @@ const Index3 = () => {
                       <h2 className="number">
                         <Counter end={7563} />+
                       </h2>
-                      <p>Units of Cattle</p>
+                      <p>Units of Livestock Monitored</p>
                     </div>
                   </div>
                 </div>
@@ -393,7 +393,7 @@ const Index3 = () => {
                       <h2 className="number">
                         <Counter end={9634} />+
                       </h2>
-                      <p>Hectares of Farm</p>
+                      <p>Land Under Sustainable Management</p>
                     </div>
                   </div>
                 </div>
@@ -409,7 +409,7 @@ const Index3 = () => {
                       <h2 className="number">
                         <Counter end={3652} />+
                       </h2>
-                      <p>Units of Technic</p>
+                      <p>Precision Farming Tools Deployed</p>
                     </div>
                   </div>
                 </div>
@@ -432,7 +432,7 @@ const Index3 = () => {
                   }}
                 >
                   <div className="text d-flex justify-content-between align-items-center">
-                    <h2>Need Organic Foods</h2>
+                    <h2>Need Sustainable Farming Help?</h2>
                     <Link legacyBehavior href="/contact">
                       <a className="main-btn bordered-btn bordered-white">
                         Get Quote
@@ -449,10 +449,10 @@ const Index3 = () => {
                   }}
                 >
                   <div className="text d-flex justify-content-between align-items-center">
-                    <h2>Have Any Equipments ?</h2>
+                    <h2>Join Our Farmer Field School</h2>
                     <Link legacyBehavior href="/contact">
                       <a className="main-btn bordered-btn bordered-white">
-                        Contact Us
+                       Enroll Now
                       </a>
                     </Link>
                   </div>
@@ -562,7 +562,8 @@ Automated Irrigation & Livestock Monitoring | Fertilizer and Pesticides Applicat
             <div className="row justify-content-center">
               <div className="col-lg-6">
                 <div className="section-title text-center mb-30 wow fadeInUp">
-                  <h4>We Have More Then 1235+ Global Partners</h4>
+                  <h4>Collaboration with Ibrahim Badamasi Babangida
+                  University, Lapai (IBBUL)</h4>
                 </div>
               </div>
             </div>
